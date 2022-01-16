@@ -6,8 +6,10 @@
   </ng-container>
 
   <div class="item" *ngFor="let item of shoppingCart; let i = index">
-    <app-item [item]="item"></app-item>
+    <app-item [item]="item" [isInCart]="isInCart(item)" (removeFromCart)="removeFromCart($event)"></app-item>
   </div>
+
+  <app-cart></app-cart>
 </div>
 
 <hr>
@@ -16,7 +18,7 @@
   <h2>All Items Feed:</h2>
 
   <div class="item" *ngFor="let item of items; let i = index">
-    <app-item [item]="item" (addToCart)="addToCart($event)"></app-item>
+    <app-item [item]="item" [isInCart]="isInCart(item)" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
   </div>
 </div>
 

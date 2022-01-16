@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { ItemComponent } from './item/item.component';
+import { FeedComponent } from './feed/feed.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    FeedComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

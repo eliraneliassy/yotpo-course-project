@@ -1,5 +1,6 @@
 import { Item } from './item.interface';
 import { Component } from '@angular/core';
+import {CartService} from "./cart.service";
 
 @Component({
   selector: 'app-root',
@@ -23,12 +24,20 @@ export class AppComponent {
     price: 3600
   };
 
-  constructor() {
-    this.items = [this.item1, this.item2];
+  constructor(private cartService: CartService) {
+    this.items = [this.item1];
   }
 
-  addToCart(item: Item){
-    this.shoppingCart.push(item);
+  addToCart(item: Item): void{
+    this.cartService.addToCart(item);
+  }
+
+  isInCart(item: Item): boolean {
+    return this.cartService.isInCart(item);
+  }
+
+  removeFromCart(item: Item): void{
+    this.cartService.removeFromCart(item);
   }
 
 
