@@ -15,7 +15,7 @@ export class AppComponent {
   item1: Item = {
     description: 'Playstation 5',
     imageUrl: `https://d3m9l0v76dty0.cloudfront.net/system/photos/6207070/large/cd7c8f87e1dfc8f9e9d0bf50b738adaf.jpg`,
-    price: 500
+    price: 200
   };
 
   item2: Item = {

@@ -1,13 +1,13 @@
 <div class="cart">
-  <h2>My Shopping Cart:</h2>
+  <h2 appChangeColor="red">My Shopping Cart:</h2>
 
-  <ng-container *ngIf="shoppingCart.length === 0">
-    No items in cart (yet...)
-  </ng-container>
+<!--  <ng-container *ngIf="shoppingCart.length === 0">-->
+<!--    No items in cart (yet...)-->
+<!--  </ng-container>-->
 
-  <div class="item" *ngFor="let item of shoppingCart; let i = index">
-    <app-item [item]="item" [isInCart]="isInCart(item)" (removeFromCart)="removeFromCart($event)"></app-item>
-  </div>
+<!--  <div class="item" *ngFor="let item of shoppingCart; let i = index">-->
+<!--    <app-item [item]="item" [isInCart]="isInCart(item)" (removeFromCart)="removeFromCart($event)"></app-item>-->
+<!--  </div>-->
 
   <app-cart></app-cart>
 </div>

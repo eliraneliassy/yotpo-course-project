@@ -1,7 +1,8 @@
 <div class="item">
   <div class="title">{{ item?.description }}</div>
   <img src="{{ item?.imageUrl }}" />
-  <div class="price">{{ item?.price }}</div>
+  <div class="price">{{ item?.price | discount | currency   }}</div>
+
   <button (click)="addToCartClicked()" *ngIf="!isInCart">Add to cart</button>
   <button (click)="removeFromCartClicked()" *ngIf="isInCart">Remove from cart</button>
 </div>

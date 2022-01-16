@@ -26,6 +26,8 @@ export class ItemComponent implements OnInit, OnChanges, AfterViewInit, AfterVie
   @Output() addToCart:EventEmitter<Item | null> = new EventEmitter<Item | null>();
   @Output() removeFromCart:EventEmitter<Item | null> = new EventEmitter<Item | null>();
 
+  today = Date.now();
+
   constructor() {
     console.log('CTOR');
   }
@@ -47,7 +49,7 @@ export class ItemComponent implements OnInit, OnChanges, AfterViewInit, AfterVie
   }
 
   ngAfterViewChecked(): void {
-    console.log('After view checked')
+    console.log('After view checked');
   }
 
   ngAfterViewInit(): void {
