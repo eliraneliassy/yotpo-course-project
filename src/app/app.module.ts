@@ -9,6 +9,7 @@ import { FeedComponent } from './feed/feed.component';
 import { CartComponent } from './cart/cart.component';
 import { DiscountPipe } from './discount.pipe';
 import { ChangeColorDirective } from './change-color.directive';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChangeColorDirective } from './change-color.directive';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
