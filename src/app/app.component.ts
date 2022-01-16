@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  shoppingCart: Item[] = [];
   items: Item[] = [];
+
   item1: Item = {
     description: 'Playstation 5',
     imageUrl: `https://d3m9l0v76dty0.cloudfront.net/system/photos/6207070/large/cd7c8f87e1dfc8f9e9d0bf50b738adaf.jpg`,
@@ -23,6 +25,10 @@ export class AppComponent {
 
   constructor() {
     this.items = [this.item1, this.item2];
+  }
+
+  addToCart(item: Item){
+    this.shoppingCart.push(item);
   }
 
 

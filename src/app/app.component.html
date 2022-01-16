@@ -1,23 +1,22 @@
-<div class="item" *ngFor="let item of items; let i = index">
-  <div class="id">Item id: {{i}}</div>
-  <div class="title">{{ item.description }}</div>
-  <img src="{{ item.imageUrl }}" />
-  <div class="price">{{ item.price }}</div>
-  <button>Add to cart</button>
+<div class="cart">
+  <h2>My Shopping Cart:</h2>
+
+  <ng-container *ngIf="shoppingCart.length === 0">
+    No items in cart (yet...)
+  </ng-container>
+
+  <div class="item" *ngFor="let item of shoppingCart; let i = index">
+    <app-item [item]="item"></app-item>
+  </div>
 </div>
 
-<!-- 
+<hr>
 
-<div class="item">
-  <div class="title">{{item1.description}}</div>
-  <img src="{{item1.imageUrl}}">
-  <div class="price">{{item1.price}}</div>
-  <button>Add to cart</button>
+<div class="feed">
+  <h2>All Items Feed:</h2>
+
+  <div class="item" *ngFor="let item of items; let i = index">
+    <app-item [item]="item" (addToCart)="addToCart($event)"></app-item>
+  </div>
 </div>
 
-<div class="item">
-  <div class="title">{{item2.description}}</div>
-  <img src="{{item2.imageUrl}}">
-  <div class="price">{{item2.price}}</div>
-  <button>Add to cart</button>
-</div> -->

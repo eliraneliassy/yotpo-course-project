@@ -1,0 +1,7 @@
+<div class="item">
+  <div class="title">{{ item?.description }}</div>
+  <img src="{{ item?.imageUrl }}" />
+  <div class="price">{{ item?.price }}</div>
+  <button (click)="addToCartClicked()">Add to cart</button>
+  <button (click)="removeFromCartClicked()">Remove from cart</button>
+</div>
