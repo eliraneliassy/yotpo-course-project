@@ -12,6 +12,7 @@ import { ChangeColorDirective } from './change-color.directive';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
 import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductComponent } from './product/product.component';
     CartComponent,
     DiscountPipe,
     ChangeColorDirective,
-    ProductComponent
+    ProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

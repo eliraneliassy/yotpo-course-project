@@ -4,6 +4,7 @@ import {CartService} from "./cart.service";
 import {PostsService} from "./posts.service";
 import {observeOn, of} from 'rxjs';
 import {asyncScheduler} from 'rxjs';
+import {AuthService} from "./auth.service";
 
 
 @Component({
@@ -13,6 +14,16 @@ import {asyncScheduler} from 'rxjs';
 })
 export class AppComponent {
 
+  constructor(private authService: AuthService) {
+  }
+
+  login() {
+    this.authService.login('Kalo');
+  }
+
+  logout(){
+    this.authService.logout();
+  }
 
 
 

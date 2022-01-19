@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostsService} from "../posts.service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Data, Params} from "@angular/router";
 import {Item} from "../item.interface";
 import {delay} from "rxjs";
 
@@ -12,9 +12,9 @@ import {delay} from "rxjs";
 export class ProductComponent implements OnInit {
 
   item: Item | null = null;
-  loading: boolean = false;
 
-  constructor(private postsService: PostsService, private activedRoute: ActivatedRoute) { }
+  constructor(private postsService: PostsService, private activedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     // this.activedRoute.params.subscribe((params: Params) => {
@@ -26,8 +26,9 @@ export class ProductComponent implements OnInit {
     //     this.item = item;
     //   })
     // })
-    this.activedRoute.data.subscribe((res: any) => {this.item = res[0];
-    this.loading = false;
+    this.activedRoute.data.subscribe((data: Data) => {
+      this.item = data[0];
+
     })
 
   }

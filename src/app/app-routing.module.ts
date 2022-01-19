@@ -4,6 +4,8 @@ import {FeedComponent} from "./feed/feed.component";
 import {CartComponent} from "./cart/cart.component";
 import {ProductComponent} from "./product/product.component";
 import {ProductResolver} from "./product.resolver";
+import {AuthGuard} from "./auth.guard";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {
@@ -22,7 +24,12 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
