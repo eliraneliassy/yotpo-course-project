@@ -49,6 +49,32 @@ export class AppComponent implements OnInit{
     this.postsService.addPost(item).subscribe((item: Item) => this.items.unshift(item));
   }
 
+  updatePost(){
+
+    const newItem: Item = {
+      userId: 1,
+      title: 'Update post id1 to this!',
+      body: 'The ecommerce web site is revolve'
+    }
+    this.postsService.updatePost(1, newItem).subscribe(itemFromServer => {
+      this.items = this.items.map(item => {
+        if(item.id === 1) {
+          return itemFromServer;
+        }
+        return item;
+      })
+
+      // const index = this.items.findIndex((item:Item) => item.id === 1);
+      // this.items[index] = itemFromServer;
+    });
+
+
+  }
+
+  filterPosts(userId: number) {
+    this.postsService.getAllUserPosts(userId).subscribe((items: Item[]) => this.items = items);
+  }
+
 
 
 
