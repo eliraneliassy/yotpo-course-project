@@ -12,6 +12,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {Item} from "../item.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-item',
@@ -30,7 +31,7 @@ export class ItemComponent
 
   today = Date.now();
 
-  constructor() {
+  constructor(private router: Router) {
     console.log('CTOR');
   }
 
@@ -40,6 +41,11 @@ export class ItemComponent
 
   removeFromCartClicked() {
     this.removeFromCart.emit(this.item);
+  }
+
+  goToProduct(){
+    this.router.navigateByUrl(`/product/${this.item?.id}`);
+    // this.router.navigate(['/product', this.item?.id])
   }
 
   // ngAfterContentChecked(): void {

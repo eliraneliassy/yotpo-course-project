@@ -1,7 +1,7 @@
 <h2>My Shopping Cart:</h2>
 
 <ng-container *ngFor="let item of shoppingCart">
-  <app-item [item]="item" ></app-item>
+  <app-item [item]="item" isInCart="true" (removeFromCart)="removeFromCart($event)"></app-item>
 </ng-container>
 
 

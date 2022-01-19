@@ -1,9 +1,9 @@
 <div class="item">
-  <div class="title">{{ item?.title }}</div>
+  <div class="title" (click)="goToProduct()">{{ item?.title }}</div>
   <div class="userid">
     User Id: {{item?.userId}}
   </div>
-  <img src="{{ item?.imageUrl }}" />
+  <img src="{{ item?.imageUrl }}" [routerLink]="['/product', item?.id]"/>
   <div class="price">{{ item?.price | discount | currency   }}</div>
 
   <button (click)="addToCartClicked()" *ngIf="!isInCart">Add to cart</button>

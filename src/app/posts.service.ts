@@ -37,8 +37,8 @@ export class PostsService {
       body: item.body,
       title: item.title
     }
-
     return this.httpClient.put<Item>(`${this.URL}/${id}`, body)
+
   }
 
   getAllUserPosts(userId: number){
@@ -50,6 +50,11 @@ export class PostsService {
     headers = headers.append('token', 'BLABLABLA');
 
     return this.httpClient.get<Item[]>(this.URL, {params, headers});
+  }
+
+  getPostById(id: number): Observable<Item> {
+    return this.httpClient.get<Item>(`${this.URL}/${id}`);
+
   }
 
 

@@ -73,4 +73,6 @@ export class FeedComponent implements OnInit {
     this.postsService.getAllUserPosts(userId).subscribe((items: Item[]) => this.items = items);
   }
 
+
+
 }
