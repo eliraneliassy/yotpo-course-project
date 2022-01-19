@@ -1,1 +1,20 @@
-<p>feed works!</p>
+
+<div class="feed">
+
+  <div class="container">
+    <h2>All Items Feed:</h2>
+
+    <button (click)="addPost()">Add Post</button>
+
+    <button (click)="updatePost()">Update Post</button>
+    <button (click)="filterPosts(1)">Filter userId: 1</button>
+  </div>
+
+  <div class="items-contaienr">
+
+    <div class="item" *ngFor="let item of items; let i = index">
+      <app-item [item]="item" [isInCart]="isInCart(item)" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
+    </div>
+  </div>
+
+</div>

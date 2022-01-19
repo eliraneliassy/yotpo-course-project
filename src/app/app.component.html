@@ -1,29 +1,16 @@
-<div class="cart">
-  <h2 appChangeColor="red">My Shopping Cart:</h2>
 
-<!--  <ng-container *ngIf="shoppingCart.length === 0">-->
-<!--    No items in cart (yet...)-->
-<!--  </ng-container>-->
 
-<!--  <div class="item" *ngFor="let item of shoppingCart; let i = index">-->
-<!--    <app-item [item]="item" [isInCart]="isInCart(item)" (removeFromCart)="removeFromCart($event)"></app-item>-->
-<!--  </div>-->
+<!--<div class="container">-->
+<!--  <div class="box one">1</div>-->
+<!--  <div class="box two">2</div>-->
+<!--  <div class="box three">3</div>-->
+<!--</div>-->
 
-  <app-cart></app-cart>
+
+<div class="header">
+  <h1>My amazing revlove</h1>
 </div>
 
-<hr>
 
-<div class="feed">
-  <h2>All Items Feed:</h2>
-
-  <button (click)="addPost()">Add Post</button>
-
-  <button (click)="updatePost()">Update Post</button>
-  <button (click)="filterPosts(1)">Filter userId: 1</button>
-
-  <div class="item" *ngFor="let item of items; let i = index">
-    <app-item [item]="item" [isInCart]="isInCart(item)" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
-  </div>
-</div>
+<router-outlet></router-outlet>
 
