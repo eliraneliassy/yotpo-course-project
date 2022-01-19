@@ -11,10 +11,10 @@ import {PostsService} from "./posts.service";
 @Injectable({
   providedIn: 'root'
 })
-export class ProductResolver implements Resolve<boolean> {
+export class ProductResolver implements Resolve<Item> {
   constructor(private postsService: PostsService) {
   }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item> {
     // return this.activedRoute.params.subscribe((params: Params) => {
     //   this.postsService.getPostById((params['id']))
     //     .pipe(
@@ -25,11 +25,9 @@ export class ProductResolver implements Resolve<boolean> {
     //     })
     // })
 
-    // const id = route.params['id'];
-    // return this.postsService.getPostById(id)
-    //   .pipe(delay(3000))
-
-    return of(true);
+    const id = route.params['id'];
+    return this.postsService.getPostById(id)
+      .pipe(delay(3000))
 
   }
 }

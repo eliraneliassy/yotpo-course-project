@@ -12,13 +12,23 @@ import {delay} from "rxjs";
 export class ProductComponent implements OnInit {
 
   item: Item | null = null;
+  loading: boolean = false;
 
   constructor(private postsService: PostsService, private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    this.activedRoute.data.subscribe();
-
+    // this.activedRoute.params.subscribe((params: Params) => {
+    //   this.postsService.getPostById((params['id']))
+    //     .pipe(
+    //       // delay(3000)
+    //     )
+    //     .subscribe((item: Item) => {
+    //     this.item = item;
+    //   })
+    // })
+    this.activedRoute.data.subscribe((res: any) => {this.item = res[0];
+    this.loading = false;
+    })
 
   }
 
