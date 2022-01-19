@@ -1,5 +1,5 @@
 import {Item, Item2} from './item.interface';
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartService} from "./cart.service";
 import {PostsService} from "./posts.service";
 import {observeOn, of} from 'rxjs';
@@ -11,7 +11,7 @@ import {asyncScheduler} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   shoppingCart: Item[] = [];
   items: Item[] = [];
@@ -20,11 +20,12 @@ export class AppComponent {
 
   constructor(private cartService: CartService, private postsService: PostsService) {
 
+  }
 
+  ngOnInit(): void {
     this.postsService.getFeed().subscribe((result) => {
       this.items = result;
     });
-
   }
 
   addToCart(item: Item): void{
@@ -38,6 +39,17 @@ export class AppComponent {
   removeFromCart(item: Item): void{
     this.cartService.removeFromCart(item);
   }
+
+  addPost(){
+    const item: Item = {
+      userId: 1,
+      title: 'New POST!',
+      body: 'The ecommerce web site is revolve'
+    }
+    this.postsService.addPost(item).subscribe((item: Item) => this.items.unshift(item));
+  }
+
+
 
 
 }

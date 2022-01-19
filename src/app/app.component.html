@@ -17,6 +17,8 @@
 <div class="feed">
   <h2>All Items Feed:</h2>
 
+  <button (click)="addPost()">Add Post</button>
+
   <div class="item" *ngFor="let item of items; let i = index">
     <app-item [item]="item" [isInCart]="isInCart(item)" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
   </div>

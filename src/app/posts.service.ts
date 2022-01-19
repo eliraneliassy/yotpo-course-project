@@ -20,4 +20,14 @@ export class PostsService {
         )))
     );
   }
+
+  addPost(item: Item): Observable<Item>{
+    const body = {
+      userId: item.userId,
+      body: item.body,
+      title: item.title
+    };
+
+    return this.httpClient.post<Item>(this.URL, body);
+  }
 }
