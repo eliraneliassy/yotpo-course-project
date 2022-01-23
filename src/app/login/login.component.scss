@@ -1,0 +1,33 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inputs{
+    display: flex;
+    flex-direction: column;
+
+    max-width: 300px;
+
+    .form-group{
+      margin-bottom: 30px;
+    }
+
+    small{
+      display: block;
+    }
+  }
+
+  .error{
+    color: red;
+  }
+
+  input.ng-valid.ng-touched{
+    border: 3px solid green;
+  }
+
+  input.ng-invalid.ng-touched{
+    border: 3px solid red;
+  }
+
+
+}

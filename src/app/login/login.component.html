@@ -1,1 +1,44 @@
-<p>Please login!</p>
+<form class="container" #form="ngForm" (ngSubmit)="submit(form)">
+  <div class="inputs">
+    <h2>Please Login</h2>
+
+    <div class="form-group">
+    <label for="email">User email:</label>
+    <input type="email"
+           id="email"
+           placeholder="Please enter your email"
+           ngModel
+           name="email"
+           #email="ngModel"
+           required
+           email>
+
+    <small class="error"
+           *ngIf="!email.valid && email.touched && email.hasError('required')">
+      Please enter your email
+    </small>
+
+      <small class="error"
+             *ngIf="!email.valid && email.touched && email.hasError('email')">
+        Please enter a valid email
+      </small>
+    </div>
+
+    <div class="form-group">
+    <label for="password">User password:</label>
+    <input type="password"
+           id="password"
+           placeholder="Please enter your password"
+           ngModel
+           name="password"
+           #password="ngModel"
+           required
+    >
+
+    </div>
+
+    <button [disabled]="!form.valid">Login</button>
+
+  </div>
+
+</form>
