@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {FeedComponent} from "./feed/feed.component";
 import {CartComponent} from "./cart/cart.component";
 import {ProductComponent} from "./product/product.component";
 import {ProductResolver} from "./product.resolver";
 import {AuthGuard} from "./auth.guard";
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./auth/login/login.component";
+import {RegisterComponent} from "./auth/register/register.component";
 
 const routes: Routes = [
   {
@@ -16,37 +16,26 @@ const routes: Routes = [
   },
   {
     path: 'feed',
-    component: FeedComponent
+    loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
   },
   {
-    path: 'product/:id',
-    component: ProductComponent,
-    resolve: [ProductResolver]
+    path: 'product',
+    loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
   },
   {
     path: 'cart',
-    component: CartComponent,
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
   },
   {
     path: 'auth',
-    children: [
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'register',
-        component: RegisterComponent
-      }
-    ]
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   }
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
