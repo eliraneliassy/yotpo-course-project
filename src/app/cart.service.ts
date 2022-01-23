@@ -24,7 +24,7 @@ export class CartService {
   }
 
   removeFromCart(item: Item){
-    const index = this.shoppingCart.indexOf(item);
+    const index = this.shoppingCart.findIndex((x: Item) => x.id === item.id);
     this.shoppingCart.splice(index, 1);
   }
 }

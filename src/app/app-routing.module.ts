@@ -6,6 +6,7 @@ import {ProductComponent} from "./product/product.component";
 import {ProductResolver} from "./product.resolver";
 import {AuthGuard} from "./auth.guard";
 import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   {
@@ -28,9 +29,20 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      }
+    ]
   }
+
+
 ];
 
 @NgModule({
