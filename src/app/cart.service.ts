@@ -15,7 +15,7 @@ export class CartService {
   }
 
   isInCart(item: Item) {
-    const index = this.shoppingCart.indexOf(item);
+    const index = this.shoppingCart.findIndex((x: Item) => x.id === item.id);
     if(index > -1){
       return true
     }

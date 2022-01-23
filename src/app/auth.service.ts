@@ -6,8 +6,6 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
-
-
   private _userName: string | null = null;
 
   public get userName(): string | null {
