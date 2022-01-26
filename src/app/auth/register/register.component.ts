@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {forbiddenNameValidator} from "../../forbidden-name.validator";
 
 @Component({
@@ -17,9 +17,16 @@ export class RegisterComponent implements OnInit {
     password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$')] )
   });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    // this.myForm = this.fb.group({
+    //   username: this.fb.control(null, [Validators.required, forbiddenNameValidator(/gal/)]),
+    // })
+
+    // this.myForm.valueChanges.subscribe(console.log)
+
+    this.myForm.controls['email'].valueChanges.subscribe(console.log)
   }
 
   changeShowPassword(){
