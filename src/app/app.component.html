@@ -14,8 +14,12 @@
     <a routerLink="cart">Cart</a>
   </div>
 
-  <button (click)="login()">Login</button>
-  <button (click)="logout()">Logout</button>
+  <button (click)="login()" *ngIf="!isLoggedIn">Login</button>
+  <button (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+
+  <div class="username">
+    {{username}}
+  </div>
 </div>
 
 

@@ -1,32 +1,26 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthState, AuthStore} from "./auth/auth.store";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private _userName: string | null = null;
-
-  public get userName(): string | null {
-    return this._userName;
-  }
-
-  public set userName(user: string | null) {
-    this._userName = user;
-  }
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private authStore: AuthStore) {
 
   }
 
   login(userName: string) {
-    this._userName = userName;
+    // this._userName = userName;
+
+    this.authStore.update((currentAuthState: AuthState) => ({...currentAuthState, username: userName}))
   }
 
   logout() {
-    this._userName = null;
-    this.router.navigateByUrl('/login');
+    this.authStore.update((currentAuthState: AuthState) => ({...currentAuthState, username: null}))
+
+    this.router.navigateByUrl('/auth/login');
   }
 
 

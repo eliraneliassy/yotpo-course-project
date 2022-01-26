@@ -5,6 +5,7 @@ import {PostsService} from "./posts.service";
 import {observeOn, of} from 'rxjs';
 import {asyncScheduler} from 'rxjs';
 import {AuthService} from "./auth.service";
+import {AuthQuery} from "./auth/auth.query";
 
 
 @Component({
@@ -14,7 +15,13 @@ import {AuthService} from "./auth.service";
 })
 export class AppComponent {
 
-  constructor(private authService: AuthService) {
+  username: string | null = null;
+
+  isLoggedIn: boolean = false;
+
+  constructor(private authService: AuthService, private authQuery: AuthQuery) {
+    this.authQuery.username$.subscribe(username => this.username = username);
+    this.authQuery.isLoggedIn$.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
   }
 
   login() {
