@@ -1,9 +1,4 @@
-import {Item, Item2} from './item.interface';
-import {Component, OnInit} from '@angular/core';
-import {CartService} from "./cart.service";
-import {PostsService} from "./posts.service";
-import {observeOn, of} from 'rxjs';
-import {asyncScheduler} from 'rxjs';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AuthService} from "./auth.service";
 import {AuthQuery} from "./auth/auth.query";
 
@@ -11,7 +6,8 @@ import {AuthQuery} from "./auth/auth.query";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
 

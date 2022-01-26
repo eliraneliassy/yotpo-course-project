@@ -1,6 +1,5 @@
 
 <div class="feed">
-
   <div class="container">
     <h2>All Items Feed:</h2>
 
@@ -12,7 +11,7 @@
 
   <div class="items-contaienr">
 
-    <div class="item" *ngFor="let item of items; let i = index">
+    <div class="item" *ngFor="let item of (items$ | async); let i = index">
       <app-item [item]="item" [isInCart]="isInCart(item)" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
     </div>
   </div>
