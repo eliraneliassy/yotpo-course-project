@@ -14,11 +14,21 @@
     <a routerLink="cart">Cart</a>
   </div>
 
-  <button (click)="login()" *ngIf="!isLoggedIn">Login</button>
-  <button (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+  <input type="text" (input)="search($event.target.value)">
+
+  <div class="search-results">
+    {{search$ | async}}
+  </div>
+
+  <div class="cart-status" *ngIf="numOfItemsInCart$ | async as numberOfItems">
+    Number of items in cart {{numberOfItems}}
+  </div>
+
+  <button (click)="login()" *ngIf="!isLoggedIn$ | async">Login</button>
+  <button (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
 
   <div class="username">
-    {{username}}
+    {{username$ | async}}
   </div>
 </div>
 

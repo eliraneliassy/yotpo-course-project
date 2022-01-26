@@ -12,7 +12,7 @@
   <div class="items-contaienr">
 
     <div class="item" *ngFor="let item of (items$ | async); let i = index">
-      <app-item [item]="item" [isInCart]="isInCart(item)" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
+      <app-item [item]="item" [isInCart]="isInCart(item) | async" (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)"></app-item>
     </div>
   </div>
 

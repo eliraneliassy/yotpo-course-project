@@ -30,7 +30,8 @@ export class FeedComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postsService.getFeed().subscribe((result) => {
+    this.postsService.getFeed()
+      .subscribe((result) => {
       // this.items = result;
       this.feedStore.update((store: FeedState) => ({...store, items: result}))
     });
@@ -50,7 +51,7 @@ export class FeedComponent implements OnInit {
     this.cartService.addToCart(item);
   }
 
-  isInCart(item: Item): boolean {
+  isInCart(item: Item): Observable<boolean> {
     return this.cartService.isInCart(item);
   }
 
